@@ -64,6 +64,7 @@
             tbValor.Name = "tbValor";
             tbValor.Size = new Size(127, 29);
             tbValor.TabIndex = 2;
+            tbValor.TextChanged += tbValor_TextChanged;
             // 
             // lbPromedio
             // 

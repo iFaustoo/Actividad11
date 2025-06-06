@@ -1,12 +1,12 @@
-namespace Ejemplo2
+namespace Ejemplo3
 {
-    public partial class FormPrincipal : Form
+    public partial class Form1 : Form
     {
-        double acumulador = 0;
+        double[] valores = new double[100];
         int contador = 0;
 
 
-        public FormPrincipal()
+        public Form1()
         {
             InitializeComponent();
         }
@@ -16,7 +16,9 @@ namespace Ejemplo2
 
 
             //acumulador += Convert.ToDouble( Console.ReadLine() );
-            acumulador += Convert.ToDouble(tbValor.Text);
+            //acumulador += Convert.ToDouble(tbValor.Text);
+
+            valores[contador] = Convert.ToDouble(tbValor.Text);
             contador++;
 
 
@@ -25,6 +27,13 @@ namespace Ejemplo2
 
         private void btnPromedio_Click(object sender, EventArgs e)
         {
+            double acumulador = 0;
+
+            for (int n = 0; n < contador; n++)
+            {
+                acumulador += valores[n];
+            }
+
             double promedio = acumulador / contador;
 
             lbPromedio.Text = $"{promedio:f2}";
@@ -34,9 +43,6 @@ namespace Ejemplo2
   {promedio,10:f2}";
         }
 
-        private void tbValor_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
